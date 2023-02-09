@@ -2,9 +2,9 @@ const chart = BarChart(data, {
   x: (d) => d.sector,
   y: (d) => d.intensity,
   //   xDomain: d3.groupSort(
-  //     alphabets,
-  //     ([d]) => -d.frequency,
-  //     (d) => d.letter
+  //     BarChart,
+  //     ([d]) => -d.sector,
+  //     (d) => d.intensity
   //   ), // sort by descending frequency
   yFormat: '',
   yLabel: '↑ Sector',
