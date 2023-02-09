@@ -6,9 +6,9 @@ const chart = BarChart(data, {
   //     ([d]) => -d.frequency,
   //     (d) => d.letter
   //   ), // sort by descending frequency
-  yFormat: '%',
-  yLabel: '↑ Frequency',
-  width: 100,
+  yFormat: '',
+  yLabel: '↑ Sector',
+  width: 1500,
   height: 500,
   color: 'steelblue',
 });
@@ -27,7 +27,8 @@ function BarChart(
     marginRight = 0, // the right margin, in pixels
     marginBottom = 30, // the bottom margin, in pixels
     marginLeft = 40, // the left margin, in pixels
-    width = 640, // the outer width of the chart, in pixels
+    width = 100,
+    // the outer width of the chart, in pixels
     height = 400, // the outer height of the chart, in pixels
     xDomain, // an array of (ordinal) x-values
     xRange = [marginLeft, width - marginRight], // [left, right]
