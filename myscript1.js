@@ -1,4 +1,3 @@
-console.log(data);
 const alphabets = [
   {
     letter: 'A',
