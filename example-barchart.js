@@ -1,14 +1,33 @@
-const chart = BarChart(data, {
-  x: (d) => d.sector,
-  y: (d) => d.intensity,
-  //   xDomain: d3.groupSort(
-  //     BarChart,
-  //     ([d]) => -d.sector,
-  //     (d) => d.intensity
-  //   ), // sort by descending frequency
-  yFormat: '',
-  yLabel: '↑ Sector',
-  width: 1500,
+const alphabets = [
+  {
+    letter: 'A',
+    frequency: 0.08167,
+  },
+  {
+    letter: 'B',
+    frequency: 0.01492,
+  },
+  {
+    letter: 'C',
+    frequency: 0.02782,
+  },
+  {
+    letter: 'D',
+    frequency: 0.07782,
+  },
+];
+
+const chart = BarChart(alphabets, {
+  x: (d) => d.letter,
+  y: (d) => d.frequency,
+  xDomain: d3.groupSort(
+    alphabets,
+    ([d]) => -d.frequency,
+    (d) => d.letter
+  ), // sort by descending frequency
+  yFormat: '%',
+  yLabel: '↑ Frequency',
+  width: 100,
   height: 500,
   color: 'steelblue',
 });
@@ -27,8 +46,7 @@ function BarChart(
     marginRight = 0, // the right margin, in pixels
     marginBottom = 30, // the bottom margin, in pixels
     marginLeft = 40, // the left margin, in pixels
-    width = 100,
-    // the outer width of the chart, in pixels
+    width = 640, // the outer width of the chart, in pixels
     height = 400, // the outer height of the chart, in pixels
     xDomain, // an array of (ordinal) x-values
     xRange = [marginLeft, width - marginRight], // [left, right]

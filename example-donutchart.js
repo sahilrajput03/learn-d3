@@ -1,4 +1,4 @@
-// import { PieChart } from '@d3/pie-chart';
+// import { PieChart } from '@d3/pie-chart'; //maybe required in react
 const population = [
   { name: '5-9', value: 20501982 },
   { name: '10-14', value: 20679786 },
@@ -13,6 +13,9 @@ const chart = DonutChart(population, {
   value: (d) => d.value,
   width: 500,
   height: 500,
+});
+window.addEventListener('load', (event) => {
+  document.body.append(chart);
 });
 
 function DonutChart(
