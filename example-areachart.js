@@ -16,7 +16,7 @@ const chart = AreaChart(aapl, {
 });
 
 window.addEventListener('load', (event) => {
-  document.body.append(chart);
+  document.body.append(inlineChart);
 });
 
 function AreaChart(

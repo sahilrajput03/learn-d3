@@ -1,4 +1,4 @@
-const chart = InlineChart(data, {
+const inlineChart = InlineChart(data, {
   x: (d) => d.published,
   y: (d) => d.intensity,
   z: (d) => d.topic,
@@ -7,7 +7,7 @@ const chart = InlineChart(data, {
 });
 
 window.addEventListener('load', (event) => {
-  document.body.append(chart);
+  document.body.append(inlineChart);
 });
 
 function InlineChart(

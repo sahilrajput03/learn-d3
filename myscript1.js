@@ -1,4 +1,4 @@
-const chart = BarChart(data, {
+const barChart = BarChart(data, {
   x: (d) => d.sector,
   y: (d) => d.intensity,
   //   xDomain: d3.groupSort(
@@ -14,7 +14,7 @@ const chart = BarChart(data, {
 });
 
 window.addEventListener('load', (event) => {
-  document.body.append(chart);
+  document.body.append(barChart);
 });
 
 function BarChart(

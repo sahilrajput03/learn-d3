@@ -1,11 +1,11 @@
-const chart = DonutChart(data, {
+const donutChart = DonutChart(data, {
   name: (d) => d.country,
   value: (d) => d.likelihood,
   width: 1500,
   height: 1000,
 });
 window.addEventListener('load', (event) => {
-  document.body.append(chart);
+  document.body.append(donutChart);
 });
 
 function DonutChart(

@@ -1,4 +1,4 @@
-const chart = AreaChart(data, {
+const areaChart = AreaChart(data, {
   x: (d) => d.country,
   y: (d) => d.relevance,
   yLabel: '↑ Daily close ($)',
@@ -8,7 +8,7 @@ const chart = AreaChart(data, {
 });
 
 window.addEventListener('load', (event) => {
-  document.body.append(chart);
+  document.body.append(areaChart);
 });
 
 function AreaChart(
