@@ -1,8 +1,8 @@
 const sales = [
-  { date: 2009 - 01 - 01, fruit: 'Apples', sales: 130 },
-  { date: 2009 - 01 - 01, fruit: 'Bananas', sales: 40 },
-  { date: 2010 - 01 - 01, fruit: 'Apples', sales: 137 },
-  { date: 2010 - 01 - 01, fruit: 'Bananas', sales: 58 },
+  { date: new Date('2009-01-01'), fruit: 'Apples', sales: 130 },
+  { date: new Date('2009-01-01'), fruit: 'Bananas', sales: 40 },
+  { date: new Date('2010-01-01'), fruit: 'Apples', sales: 137 },
+  { date: new Date('2010-01-01'), fruit: 'Bananas', sales: 58 },
 ];
 
 const chart = InlineChart(sales, {

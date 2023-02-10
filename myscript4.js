@@ -1,9 +1,9 @@
 const inlineChart = InlineChart(data, {
-  x: (d) => d.published,
-  y: (d) => d.intensity,
-  z: (d) => d.topic,
-  width: 1000,
-  height: 600,
+  x: (d) => new Date(d.published), //required date object
+  y: (d) => d.intensity, //required number type
+  z: (d) => d.sector, //required string type
+  width: 3000,
+  height: 3000,
 });
 
 window.addEventListener('load', (event) => {

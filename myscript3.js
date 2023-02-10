@@ -1,8 +1,8 @@
 const areaChart = AreaChart(data, {
-  x: (d) => d.country,
+  x: (d) => new Date(d.added),
   y: (d) => d.relevance,
   yLabel: '↑ Daily close ($)',
-  width: 500,
+  width: 1500,
   height: 500,
   color: 'steelblue',
 });

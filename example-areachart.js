@@ -1,11 +1,12 @@
 const aapl = [
-  { date: 2007 - 04 - 23, close: 93.24 },
-  { date: 2007 - 04 - 24, close: 95.35 },
-  { date: 2007 - 04 - 25, close: 98.84 },
-  { date: 2007 - 04 - 26, close: 99.92 },
-  { date: 2007 - 04 - 29, close: 99.8 },
-  { date: 2007 - 05 - 01, close: 99.47 },
+  { date: new Date('2007-04-23'), close: 93.24 },
+  { date: new Date('2007-04-24'), close: 95.35 },
+  { date: new Date('2007-04-25'), close: 98.84 },
+  { date: new Date('2007-04-26'), close: 50.92 },
+  { date: new Date('2007-04-29'), close: 60.8 },
+  { date: new Date('2007-05-01'), close: 70.47 },
 ];
+
 const chart = AreaChart(aapl, {
   x: (d) => d.date,
   y: (d) => d.close,
@@ -16,7 +17,7 @@ const chart = AreaChart(aapl, {
 });
 
 window.addEventListener('load', (event) => {
-  document.body.append(inlineChart);
+  document.body.append(chart);
 });
 
 function AreaChart(
