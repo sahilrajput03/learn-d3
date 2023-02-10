@@ -8,8 +8,8 @@ const aapl = [
 ];
 
 const chart = AreaChart(aapl, {
-  x: (d) => d.date,
-  y: (d) => d.close,
+  x: (d) => d.date, //requires date object
+  y: (d) => d.close, //requires number
   yLabel: '↑ Daily close ($)',
   width: 500,
   height: 500,

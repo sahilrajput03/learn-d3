@@ -9,8 +9,8 @@ const population = [
   { name: '35-39', value: 19855782 },
 ];
 const chart = DonutChart(population, {
-  name: (d) => d.name,
-  value: (d) => d.value,
+  name: (d) => d.name, //requires string
+  value: (d) => d.value, //requires number
   width: 500,
   height: 500,
 });

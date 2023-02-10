@@ -1,6 +1,6 @@
 const donutChart = DonutChart(data, {
-  name: (d) => d.country,
-  value: (d) => d.likelihood,
+  name: (d) => d.country, //requires string
+  value: (d) => d.likelihood, //requires number
   width: 1500,
   height: 1000,
 });

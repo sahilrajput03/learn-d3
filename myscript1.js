@@ -1,6 +1,6 @@
 const barChart = BarChart(data, {
-  x: (d) => d.sector,
-  y: (d) => d.intensity,
+  x: (d) => d.sector, //requires string
+  y: (d) => d.intensity, //requires number
   //   xDomain: d3.groupSort(
   //     BarChart,
   //     ([d]) => -d.sector,

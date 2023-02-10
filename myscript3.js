@@ -1,6 +1,6 @@
 const areaChart = AreaChart(data, {
-  x: (d) => new Date(d.added),
-  y: (d) => d.relevance,
+  x: (d) => new Date(d.added), //requires date object
+  y: (d) => d.relevance, //requires number
   yLabel: '↑ Daily close ($)',
   width: 1500,
   height: 500,

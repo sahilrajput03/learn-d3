@@ -6,9 +6,9 @@ const sales = [
 ];
 
 const chart = InlineChart(sales, {
-  x: (d) => d.date,
-  y: (d) => d.sales,
-  z: (d) => d.fruit,
+  x: (d) => d.date, //required date object
+  y: (d) => d.sales, //required number
+  z: (d) => d.fruit, //requires string
   width: 500,
   height: 500,
 });

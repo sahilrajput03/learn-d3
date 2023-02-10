@@ -18,8 +18,8 @@ const alphabets = [
 ];
 
 const chart = BarChart(alphabets, {
-  x: (d) => d.letter,
-  y: (d) => d.frequency,
+  x: (d) => d.letter, //requires string
+  y: (d) => d.frequency, //requires number
   xDomain: d3.groupSort(
     alphabets,
     ([d]) => -d.frequency,
