@@ -1,14 +1,24 @@
 // date,name,category,value
-data = data.map((item) => ({
-  ...item,
-  date: new Date(item.end_year),
-  name: item.sector,
-  category: item.topic,
-  value: item.likelihood,
-}));
+// data = data.map((item) => ({
+//   ...item,
+//   date: new Date(item.end_year),
+//   name: item.sector,
+//   category: item.topic,
+//   value: item.likelihood,
+// }));
+// console.log('data?', data)
 width = 500;
-async function* chart() {
-  // replay;
+margin = { top: 16, right: 6, bottom: 6, left: 0 };
+barSize = 48;
+n = 12;
+duration = 250;
+x = d3.scaleLinear([0, 1], [margin.left, width - margin.right]);
+
+height = margin.top + barSize * n + margin.bottom;
+
+async function* chart(replay,d3,width,height,bars,axis,labels,ticker,keyframes,duration,x,invalidation){
+  console.log('svg0?');
+  replay;
 
   const svg = d3.create('svg').attr('viewBox', [0, 0, width, height]);
   console.log('svg?', svg);
@@ -30,26 +40,33 @@ async function* chart() {
     updateLabels(keyframe, transition);
     updateTicker(keyframe, transition);
 
-    invalidation.then(() => svg.interrupt());
+    // invalidation.then(() => svg.interrupt());
     await transition.end();
   }
 }
 
-console.log('chart?', chart());
-duration = 250;
-n = 12;
+console.log('chart?', chart(d3,width,height,bars,axis,labels,ticker,keyframes,duration,x));
 names = new Set(data.map((d) => d.name));
 
 datevalues = Array.from(
   d3.rollup(
     data,
     ([d]) => d.value,
-    (d) => +d.date,
+    (d) => {
+      return +d.date;
+    },
     (d) => d.name
   )
 )
-  .map(([date, data]) => [new Date(date), data])
-  .sort(([a], [b]) => d3.ascending(a, b));
+  .map((input) => {
+    const [date, data] = input
+    return [new Date(date), data];
+  })
+  .sort(([a], [b]) => {
+    return d3.ascending(a, b);
+  });
+
+// console.log("datevalues?", datevalues)
 
 function rank(value) {
   const data = Array.from(names, (name) => ({ name, value: value(name) }));
@@ -58,7 +75,7 @@ function rank(value) {
   return data;
 }
 k = 10;
-let keyframes = (() => {
+var keyframes = (() => {
   const keyframes = [];
   let ka, a, kb, b;
   for ([[ka, a], [kb, b]] of d3.pairs(datevalues)) {
@@ -73,6 +90,8 @@ let keyframes = (() => {
   keyframes.push([new Date(kb), rank((name) => b.get(name) || 0)]);
   return keyframes;
 })();
+
+// console.log('keyframes?', keyframes)
 
 nameframes = d3.groups(
   keyframes.flatMap(([, data]) => data),
@@ -239,15 +258,11 @@ let color = (() => {
   }
   return (d) => scale(d.name);
 })();
-margin = { top: 16, right: 6, bottom: 6, left: 0 };
-x = d3.scaleLinear([0, 1], [margin.left, width - margin.right]);
-barSize = 48;
 y = d3
   .scaleBand()
   .domain(d3.range(n + 1))
   .rangeRound([margin.top, margin.top + barSize * (n + 1 + 0.1)])
   .padding(0.1);
 
-height = margin.top + barSize * n + margin.bottom;
 
 // d3 = require('d3@6');
