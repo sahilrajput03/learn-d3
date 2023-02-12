@@ -1,5 +1,5 @@
 const barChart = BarChart(data, {
-  x: (d) => d.sector, //requires string
+  x: (d) => d.sector || '(un-named)', //requires string
   y: (d) => d.intensity, //requires number
   //   xDomain: d3.groupSort(
   //     BarChart,
