@@ -1,11 +1,15 @@
-const barChart = BarChart(data, {
+let newBarData = data;
+let filteredBarData = newBarData.reduce(function (acc, cur) {
+  let foundBarData = acc.find((elem) => elem.sector == cur.sector);
+  if (foundBarData)
+    foundBarData.intensity = foundBarData.intensity + cur.intensity;
+  else acc.push(cur);
+  return acc;
+}, []);
+const barChart = BarChart(filteredBarData, {
   x: (d) => d.sector || '(un-named)', //requires string
   y: (d) => d.intensity, //requires number
-  //   xDomain: d3.groupSort(
-  //     BarChart,
-  //     ([d]) => -d.sector,
-  //     (d) => d.intensity
-  //   ), // sort by descending frequency
+
   yFormat: '',
   yLabel: '↑ Sector',
   width: 1500,

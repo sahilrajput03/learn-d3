@@ -1,12 +1,13 @@
-let newData = data;
-let filteredData = newData.reduce(function (acc, cur) {
-  let foundData = acc.find((elem) => elem.country == cur.country);
-  if (foundData) foundData.likelihood = foundData.likelihood + cur.likelihood;
+let newDonutData = data;
+let filteredDonutData = newDonutData.reduce(function (acc, cur) {
+  let foundDonutData = acc.find((elem) => elem.country == cur.country);
+  if (foundDonutData)
+    foundDonutData.likelihood = foundDonutData.likelihood + cur.likelihood;
   else acc.push(cur);
   return acc;
 }, []);
 
-const donutChart = DonutChart(filteredData, {
+const donutChart = DonutChart(filteredDonutData, {
   name: (d) => d.country, //requires string
   value: (d) => d.likelihood, //requires number
   width: 1500,
