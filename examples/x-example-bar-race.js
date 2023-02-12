@@ -21,7 +21,7 @@ async function* chart(replay,d3,width,height,bars,axis,labels,ticker,keyframes,d
   replay;
 
   const svg = d3.create('svg').attr('viewBox', [0, 0, width, height]);
-  console.log('svg?', svg);
+  console.log('svg?', svg); // NEED TO GET THIS HTML PRINTED! 
   const updateBars = bars(svg);
   const updateAxis = axis(svg);
   const updateLabels = labels(svg);
