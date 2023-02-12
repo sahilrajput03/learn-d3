@@ -11,7 +11,7 @@ const donutChart = DonutChart(filteredDonutData, {
   name: (d) => d.country, //requires string
   value: (d) => d.likelihood, //requires number
   width: 1500,
-  height: 1000,
+  height: 900,
 });
 window.addEventListener('load', (event) => {
   document.body.append(donutChart);
