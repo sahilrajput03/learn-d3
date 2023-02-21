@@ -6,7 +6,7 @@ let filteredBarData = newBarData.reduce(function (acc, cur) {
   else acc.push(cur);
   return acc;
 }, []);
-const barChart = BarChart(filteredBarData, {
+const barChart1 = BarChart(filteredBarData, {
   x: (d) => d.sector || '(un-named)', //requires string
   y: (d) => d.intensity, //requires number
 
@@ -18,7 +18,7 @@ const barChart = BarChart(filteredBarData, {
 });
 
 window.addEventListener('load', (event) => {
-  document.body.append(barChart);
+  document.body.append(barChart1);
 });
 
 function BarChart(

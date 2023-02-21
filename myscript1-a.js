@@ -1,4 +1,4 @@
-const barChart = BarChart(data, {
+const barChart1a = BarChart(data, {
   x: (d) => d.sector || '(un-named)', //requires string
   y: (d) => d.likelihood, //requires number
   //   xDomain: d3.groupSort(
@@ -14,7 +14,7 @@ const barChart = BarChart(data, {
 });
 
 window.addEventListener('load', (event) => {
-  document.body.append(barChart);
+  document.body.append(barChart1a);
 });
 
 function BarChart(
